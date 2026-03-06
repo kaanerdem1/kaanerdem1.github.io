@@ -2,44 +2,46 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Temel Ödevi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1 style="display:inline-block; width:40%; margin:20px;">CSS Temel Ödevi</h1>
-        <nav style="display:inline-block; width:50%;">
-            <ul>
-                <li><a href="#" class="aktive">Ana Sayfa</a></li>
-                <li><a href="#">Hakkında</a></li>
-                <li><a href="#">Hizmetler</a></li>
-                <li><a href="#">İletişim</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1 class="baslik">CSS Temel Ödevi</h1>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" class="aktif">Ana Sayfa</a></li>
+                    <li><a href="#">Hakkında</a></li>
+                    <li><a href="#">Hizmetler</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <section class="aciklama">
-        <p>Verilen benzer bir düzenle basit bir web sayfası oluşturun. CSS’in temel özelliklerini (<strong>display, width, height, margin, padding, border, selector</strong>) uygulayın. Sadece HTML5 + CSS3 kullanın, hazır framework kullanmak yasak.</p>
-    </section>
+        <section class="aciklama">
+            <p>Verilen benzer bir düzenle basit bir web sayfası oluşturun. CSS’in temel özelliklerini (display, width, height, margin, padding, border, selector) uygulayın. Sadece HTML5 + CSS3 kullanın, hazır framework kullanmak yasak (Bootstrap, Tailwind vb.).</p>
+        </section>
 
-    <main>
-        <div class="icerik kutusu">
-            <h2>İçerik</h2>
-            <p>Bu alanda örnek içerik metinleri bulunmaktadır. Css özellikleriyle bu metinler arasında <strong>boşluklar</strong> (line-height) ve hizalamalar (text-align) düzenleriz.</p>
-            <p>Önce CSS ile kutuları yan yana getirmeyi öğrendik.</p>
-        </div>
+        <main class="icerik-alani">
+            <div class="kutu icerik-kutu">
+                <h2>İçerik</h2>
+                <p>Bu alanda örnek içerik metinleri bulunmaktadır. Css özellikleriyle bu metinler arasında <strong>boşluklar</strong> (line-height) ve hizalamalar (text-align) düzenleriz.</p>
+                <p>Önce CSS ile kutuları / alanları yan yana getirmeyi, ardından alt alta yerleştirmeyi öğrendik. Şimdi ise CSS seçicilerini kullanarak <strong>grup</strong> ve hiyerarşik seçimler yapmayı göreceğiz.</p>
+            </div>
 
-        <div class="bilgi kutusu">
-            <h2>Yan Menü / Bilgi</h2>
-            <p>Bu alan yan menü veya bilgi kısmıdır. CSS ile genişlik (width), yükseklik (height), kenar boşlukları (margin/padding) ve kenarlık (border) özelliklerini kullanarak düzenleyebiliriz.</p>
-        </div>
-    </main>
-           
-    <footer>
-        <p>&copy; 2026 CSS Temel Örnek. Bu sayfa basit bir HTML+CSS alıştırmasıdır.</p>
-    </footer>
+            <div class="kutu bilgi-kutu">
+                <h2>Yan Menü / Bilgi</h2>
+                <p>Bu alan yan menü veya bilgi kısmıdır. CSS ile genişlik (width), yükseklik (height), kenar boşlukları (margin/padding) ve kenarlık (border) özelliklerini kullanarak düzenleyebiliriz.</p>
+                <p>Öğrendiklerimizi hiyerarşik ve grup seçicilerle uygulayıp farklı bölümlere stil verebiliriz.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 CSS Temel Örnek. Bu sayfa basit bir HTML+CSS alıştırmasıdır.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
