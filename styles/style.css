@@ -24,7 +24,7 @@ nav ul li a {
     padding: 5px 10px;
 }
 
-.aktif {
+.aktive {
     background-color: #85a3d4;
     color: white !important;
     border-radius: 4px;
@@ -44,7 +44,7 @@ nav ul li a {
     box-sizing: border-box; 
 }
 
-.sarı { background-color: #fef5d8; }
+.sari { background-color: #fef5d8; }
 .mavi { background-color: #e3f2fd; }
 
 footer {
