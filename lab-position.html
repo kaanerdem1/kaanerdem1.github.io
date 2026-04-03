@@ -19,7 +19,7 @@
       position: fixed;
       bottom: 28px;
       right: 28px;
-      background: #e63946;
+      background: #7b2fff;
       color: #fff;
       padding: 12px 20px;
       border-radius: 50px;
@@ -32,9 +32,9 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .fixed-helper:hover {
+      background: #5a1fd1;
       transform: scale(1.08) translateY(-3px);
-      box-shadow: 0 8px 28px rgba(230,57,70,0.55);
-      cursor: help;
+      box-shadow: 0 8px 28px rgba(123,47,255,0.6);
     }
 
     /* ===== FIXED ANA SAYFA BUTONU – sol üstte ===== */
@@ -197,17 +197,20 @@
       position: absolute;
       bottom: 22px;
       right: 32px;
-      background: #1a1a2e;
-      color: #f9c74f;
+       background: #e8e0f5;
+      color: #3a3a5c;
       font-size: 0.72rem;
       font-weight: 700;
       padding: 5px 12px;
       border-radius: 20px;
       z-index: 3;
       /* @keyframes animasyonu */
+      box-shadow: 0 2px 8px rgba(123,47,255,0.10);
       animation: pulse-badge 2s ease-in-out infinite;
+      transition: background 0.25s ease;
     }
     .badge-deadline:hover {
+      background: #d0c4ef;
       cursor: pointer;
       animation-play-state: paused;
     }
