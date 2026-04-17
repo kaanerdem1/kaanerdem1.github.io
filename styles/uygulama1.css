@@ -16,9 +16,9 @@ body {
 .container {
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  padding: 32px;
+  padding: 40px 48px;
   width: 100%;
-  max-width: 520px;
+  max-width: 860px;
   height: fit-content;
 }
 
