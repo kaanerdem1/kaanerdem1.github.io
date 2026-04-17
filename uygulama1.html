@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Öğrenci Not Hesaplama</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Öğrenci Not Hesaplama</h1>
+
+    <div class="form-group">
+      <input type="text" id="adSoyad" placeholder="Ad Soyad" />
+    </div>
+    <div class="form-group">
+      <input type="text" id="vize" placeholder="Vize Notu" />
+    </div>
+    <div class="form-group">
+      <input type="text" id="final" placeholder="Final Notu" />
+    </div>
+
+    <button id="hesaplaBtn">Hesapla</button>
+
+    <div class="sonuc" id="sonuc" style="display: none;">
+      <p class="ogrenci-ad" id="sonucAd"></p>
+      <p id="sonucOrtalama"></p>
+      <p id="sonucHarf"></p>
+      <p id="sonucDurum"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
