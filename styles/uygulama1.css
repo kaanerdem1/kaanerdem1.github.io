@@ -1,64 +1,63 @@
-/* ── Uygulama 1 – Öğrenci Not Hesaplama ── */
-
-main h2 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin: 24px 0 16px;
-  color: #111;
+/* Ana font ve sayfa yapısı */
+body {
+    font-family: Georgia, serif;
+    background-color: #f4f4f4;
 }
 
+.icerik-alani {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #000;
+}
+
+/* Input stilleri */
 .form-group {
-  margin-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 .form-group input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #aaa;
-  font-size: 0.95rem;
-  font-family: inherit;
-  outline: none;
-  color: #222;
-  background-color: #fff;
-  box-sizing: border-box;
-  transition: border-color 0.2s;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #888; /* Kenarlıklar görseldeki gibi belirgin */
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
 }
 
-.form-group input:focus {
-  border-color: #555;
-}
-
+/* Buton stili */
 button#hesaplaBtn {
-  width: 100%;
-  padding: 11px;
-  margin-top: 4px;
-  background-color: #e0e0e0;
-  border: 1px solid #aaa;
-  font-size: 0.95rem;
-  font-family: inherit;
-  cursor: pointer;
-  color: #222;
-  transition: background-color 0.2s;
+    width: 100%;
+    padding: 12px;
+    background-color: #efefef;
+    border: 1px solid #888;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 5px;
 }
 
 button#hesaplaBtn:hover {
-  background-color: #ccc;
+    background-color: #e5e5e5;
 }
 
+/* Sonuç Kutusu - Görseldeki açık gri alan */
 .sonuc {
-  margin-top: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  padding: 20px 24px;
-  font-size: 0.95rem;
-  color: #222;
-  line-height: 2;
-  width: 100%;
-  box-sizing: border-box;
+    margin-top: 30px;
+    background-color: #ededed;
+    border: none; /* Görselde kenarlık yok gibi duruyor, sadece arka plan */
+    padding: 25px;
+    color: #111;
+    line-height: 1.6;
+    text-align: left;
 }
 
 .ogrenci-ad {
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
 }
