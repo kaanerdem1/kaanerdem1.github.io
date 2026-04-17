@@ -44,7 +44,13 @@ button#hesaplaBtn {
 button#hesaplaBtn:hover {
     background-color: #e5e5e5;
 }
-
+.icerik-alani {
+    max-width: 520px;
+    margin: 0 auto;
+    background-color: #fff;   /* EKLE */
+    padding: 20px;            /* EKLE */
+    border: 1px solid #ccc;   /* EKLE */
+}
 /* Sonuç Kutusu - Görseldeki açık gri alan */
 .sonuc {
     margin-top: 30px;
