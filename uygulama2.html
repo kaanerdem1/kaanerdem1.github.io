@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uygulama 2 - Birim Dönüştürücü</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <div class="card">
+        <h1>Birim Dönüştürücü</h1>
+        
+        <div class="form-group">
+            <label for="deger">Değer Giriniz:</label>
+            <input type="number" id="deger" placeholder="50">
+        </div>
+
+        <div class="form-group">
+            <label for="donusumTipi">Dönüşüm Tipi:</label>
+            <select id="donusumTipi">
+                <option value="m-km">Metre -> Kilometre</option>
+                <option value="c-f" selected>Celsius -> Fahrenheit</option>
+                <option value="kg-gr">Kilogram -> Gram</option>
+            </select>
+        </div>
+
+        <button id="hesaplaBtn">Hesapla</button>
+
+        <div id="sonucAlani" class="sonuc-box" style="display: none;">
+            <strong>Sonuç: <span id="sonucDeger"></span></strong>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>
