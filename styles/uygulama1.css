@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 32px;
+  width: 100%;
+  max-width: 520px;
+  height: fit-content;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #111111;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #aaaaaa;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  color: #222222;
+  background-color: #ffffff;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #555555;
+}
+
+button {
+  width: 100%;
+  padding: 11px;
+  margin-top: 4px;
+  background-color: #e0e0e0;
+  border: 1px solid #aaaaaa;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  color: #222222;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #cccccc;
+}
+
+.sonuc {
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #cccccc;
+  padding: 16px;
+  font-size: 0.92rem;
+  color: #222222;
+  line-height: 1.8;
+}
+
+.ogrenci-ad {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
