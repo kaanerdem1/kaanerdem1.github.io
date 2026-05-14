@@ -1,37 +1,175 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uygulama 2 - Birim Dönüştürücü</title>
-    <link rel="stylesheet" href="style2.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 2 - Birim Dönüştürücü</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    .form-kutu {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 30px;
+    }
+    .form-kutu h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+    .form-kutu label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 4px;
+      font-weight: bold;
+      color: #333;
+    }
+    .form-kutu input[type="text"],
+    .form-kutu select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+    .form-kutu button {
+      margin-top: 22px;
+      width: 100%;
+      padding: 10px;
+      background-color: #2c3e50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .form-kutu button:hover {
+      background-color: #3d5166;
+    }
+    #sonuc {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 16px;
+      background-color: #d6eaf8;
+      border: 1px solid #2980b9;
+      color: #1a5276;
+      display: none;
+    }
+    .geri-link {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      color: #2c3e50;
+      text-decoration: none;
+    }
+    .geri-link:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
+<div class="container">
+  <header>
+    <h1 class="baslik">CSS Temel Ödevi</h1>
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="about.html">Hakkında</a></li>
+        <li><a href="interests.html">Hizmetler</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="card">
-        <h1>Birim Dönüştürücü</h1>
-        
-        <div class="form-group">
-            <label for="deger">Değer Giriniz:</label>
-            <input type="number" id="deger" placeholder="50">
-        </div>
+  <main>
+    <div class="form-kutu">
+      <h2>Birim Dönüştürücü</h2>
 
-        <div class="form-group">
-            <label for="donusumTipi">Dönüşüm Tipi:</label>
-            <select id="donusumTipi">
-                <option value="m-km">Metre -> Kilometre</option>
-                <option value="c-f" selected>Celsius -> Fahrenheit</option>
-                <option value="kg-gr">Kilogram -> Gram</option>
-            </select>
-        </div>
+      <label for="deger">Değer Giriniz:</label>
+      <input type="text" id="deger" placeholder="Dönüştürmek istediğiniz değeri giriniz">
 
-        <button id="hesaplaBtn">Hesapla</button>
+      <label for="donusum">Dönüşüm Tipi:</label>
+      <select id="donusum">
+        <optgroup label="Sıcaklık">
+          <option value="c_to_f">Celsius → Fahrenheit</option>
+          <option value="f_to_c">Fahrenheit → Celsius</option>
+          <option value="c_to_k">Celsius → Kelvin</option>
+          <option value="k_to_c">Kelvin → Celsius</option>
+        </optgroup>
+        <optgroup label="Uzunluk">
+          <option value="m_to_km">Metre → Kilometre</option>
+          <option value="km_to_m">Kilometre → Metre</option>
+          <option value="m_to_mil">Metre → Mil</option>
+          <option value="mil_to_m">Mil → Metre</option>
+        </optgroup>
+      </select>
 
-        <div id="sonucAlani" class="sonuc-box" style="display: none;">
-            <strong>Sonuç: <span id="sonucDeger"></span></strong>
-        </div>
+      <button onclick="donustur()">Dönüştür</button>
+
+      <div id="sonuc"></div>
+      <a href="index.html" class="geri-link">← Ana Sayfaya Dön</a>
     </div>
+  </main>
 
-    <script src="script2.js"></script>
+  <footer>
+    <p>© 2026 CSS Temel Örnek. Bu sayfa basit bir HTML+CSS alıştırmasıdır.</p>
+  </footer>
+</div>
+
+<script>
+  function donustur() {
+    var deger    = parseFloat(document.getElementById('deger').value);
+    var tip      = document.getElementById('donusum').value;
+    var sonucDiv = document.getElementById('sonuc');
+
+    if (isNaN(deger)) {
+      alert('Lütfen geçerli bir sayısal değer giriniz.');
+      return;
+    }
+
+    var sonuc, aciklama;
+
+    switch (tip) {
+      // Sıcaklık
+      case 'c_to_f':
+        sonuc    = (deger * 9/5) + 32;
+        aciklama = deger + ' °C = ' + sonuc.toFixed(2) + ' °F';
+        break;
+      case 'f_to_c':
+        sonuc    = (deger - 32) * 5/9;
+        aciklama = deger + ' °F = ' + sonuc.toFixed(2) + ' °C';
+        break;
+      case 'c_to_k':
+        sonuc    = deger + 273.15;
+        aciklama = deger + ' °C = ' + sonuc.toFixed(2) + ' K';
+        break;
+      case 'k_to_c':
+        sonuc    = deger - 273.15;
+        aciklama = deger + ' K = ' + sonuc.toFixed(2) + ' °C';
+        break;
+      // Uzunluk
+      case 'm_to_km':
+        sonuc    = deger / 1000;
+        aciklama = deger + ' m = ' + sonuc.toFixed(4) + ' km';
+        break;
+      case 'km_to_m':
+        sonuc    = deger * 1000;
+        aciklama = deger + ' km = ' + sonuc.toFixed(2) + ' m';
+        break;
+      case 'm_to_mil':
+        sonuc    = deger / 1609.344;
+        aciklama = deger + ' m = ' + sonuc.toFixed(6) + ' mil';
+        break;
+      case 'mil_to_m':
+        sonuc    = deger * 1609.344;
+        aciklama = deger + ' mil = ' + sonuc.toFixed(2) + ' m';
+        break;
+    }
+
+    sonucDiv.style.display = 'block';
+    sonucDiv.innerHTML = '<strong>Sonuç:</strong> ' + aciklama;
+  }
+</script>
 </body>
 </html>
