@@ -3,173 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uygulama 2 - Birim Dönüştürücü</title>
+  <title>Uygulama 2 – Birim Dönüştürücü</title>
   <link rel="stylesheet" href="styles/style.css">
   <style>
-    .form-kutu {
+    body { font-family: Arial, sans-serif; background: #f4f4f4; }
+
+    .uygulama-wrapper {
       max-width: 500px;
       margin: 40px auto;
-      background: #fff;
-      border: 1px solid #ddd;
+      background: #ffffff;
+      border: 1px solid #cccccc;
       border-radius: 8px;
-      padding: 30px;
+      padding: 30px 35px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .form-kutu h2 {
-      margin-bottom: 20px;
+
+    .uygulama-wrapper h2 {
+      text-align: center;
+      margin-bottom: 24px;
       color: #2c3e50;
+      font-size: 20px;
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 10px;
     }
-    .form-kutu label {
+
+    .form-satir {
+      margin-bottom: 16px;
+    }
+
+    .form-satir label {
       display: block;
-      margin-top: 14px;
-      margin-bottom: 4px;
       font-weight: bold;
+      margin-bottom: 5px;
       color: #333;
     }
-    .form-kutu input[type="text"],
-    .form-kutu select {
+
+    .form-satir input[type="text"],
+    .form-satir select {
       width: 100%;
-      padding: 8px 10px;
-      border: 1px solid #bbb;
+      padding: 9px 11px;
+      border: 1px solid #aaa;
       border-radius: 4px;
-      font-size: 15px;
+      font-size: 14px;
       box-sizing: border-box;
+      background: #fafafa;
     }
-    .form-kutu button {
-      margin-top: 22px;
+
+    .form-satir input[type="text"]:focus,
+    .form-satir select:focus {
+      outline: none;
+      border-color: #2c3e50;
+      background: #fff;
+    }
+
+    .btn-hesapla {
+      display: block;
       width: 100%;
-      padding: 10px;
+      padding: 11px;
       background-color: #2c3e50;
-      color: #fff;
+      color: #ffffff;
       border: none;
       border-radius: 4px;
-      font-size: 16px;
+      font-size: 15px;
+      font-weight: bold;
       cursor: pointer;
-    }
-    .form-kutu button:hover {
-      background-color: #3d5166;
-    }
-    #sonuc {
       margin-top: 20px;
-      padding: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-hesapla:hover { background-color: #3d5166; }
+
+    #sonuc-alani {
+      display: none;
+      margin-top: 22px;
+      padding: 16px 18px;
       border-radius: 6px;
-      font-size: 16px;
+      font-size: 15px;
       background-color: #d6eaf8;
       border: 1px solid #2980b9;
       color: #1a5276;
-      display: none;
+      text-align: center;
+      font-weight: bold;
     }
+
     .geri-link {
       display: block;
       text-align: center;
-      margin-top: 16px;
+      margin-top: 18px;
       color: #2c3e50;
       text-decoration: none;
+      font-size: 13px;
     }
     .geri-link:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <h1 class="baslik">CSS Temel Ödevi</h1>
-    <nav class="menu">
-      <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="about.html">Hakkında</a></li>
-        <li><a href="interests.html">Hizmetler</a></li>
-        <li><a href="contact.html">İletişim</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <div class="form-kutu">
-      <h2>Birim Dönüştürücü</h2>
+<div class="uygulama-wrapper">
+  <h2>🔁 Birim Dönüştürücü</h2>
 
-      <label for="deger">Değer Giriniz:</label>
-      <input type="text" id="deger" placeholder="Dönüştürmek istediğiniz değeri giriniz">
+  <div class="form-satir">
+    <label for="deger">Değer Giriniz:</label>
+    <input type="text" id="deger" placeholder="Dönüştürmek istediğiniz değeri giriniz">
+  </div>
 
-      <label for="donusum">Dönüşüm Tipi:</label>
-      <select id="donusum">
-        <optgroup label="Sıcaklık">
-          <option value="c_to_f">Celsius → Fahrenheit</option>
-          <option value="f_to_c">Fahrenheit → Celsius</option>
-          <option value="c_to_k">Celsius → Kelvin</option>
-          <option value="k_to_c">Kelvin → Celsius</option>
-        </optgroup>
-        <optgroup label="Uzunluk">
-          <option value="m_to_km">Metre → Kilometre</option>
-          <option value="km_to_m">Kilometre → Metre</option>
-          <option value="m_to_mil">Metre → Mil</option>
-          <option value="mil_to_m">Mil → Metre</option>
-        </optgroup>
-      </select>
+  <div class="form-satir">
+    <label for="tip">Dönüşüm Tipi:</label>
+    <select id="tip">
+      <optgroup label="🌡️ Sıcaklık">
+        <option value="c_f">Celsius → Fahrenheit</option>
+        <option value="f_c">Fahrenheit → Celsius</option>
+        <option value="c_k">Celsius → Kelvin</option>
+        <option value="k_c">Kelvin → Celsius</option>
+      </optgroup>
+      <optgroup label="📏 Uzunluk">
+        <option value="m_km">Metre → Kilometre</option>
+        <option value="km_m">Kilometre → Metre</option>
+        <option value="m_mil">Metre → Mil</option>
+        <option value="mil_m">Mil → Metre</option>
+      </optgroup>
+    </select>
+  </div>
 
-      <button onclick="donustur()">Dönüştür</button>
+  <button class="btn-hesapla" id="btnDonustur">Dönüştür</button>
 
-      <div id="sonuc"></div>
-      <a href="index.html" class="geri-link">← Ana Sayfaya Dön</a>
-    </div>
-  </main>
+  <div id="sonuc-alani"></div>
 
-  <footer>
-    <p>© 2026 CSS Temel Örnek. Bu sayfa basit bir HTML+CSS alıştırmasıdır.</p>
-  </footer>
+  <a href="index.html" class="geri-link">← Ana Sayfaya Dön</a>
 </div>
 
 <script>
-  function donustur() {
-    var deger    = parseFloat(document.getElementById('deger').value);
-    var tip      = document.getElementById('donusum').value;
-    var sonucDiv = document.getElementById('sonuc');
+  document.getElementById('btnDonustur').addEventListener('click', function() {
+    var degerStr = document.getElementById('deger').value.trim();
+    var tip      = document.getElementById('tip').value;
+    var alan     = document.getElementById('sonuc-alani');
 
-    if (isNaN(deger)) {
+    var deger = parseFloat(degerStr);
+    if (degerStr === '' || isNaN(deger)) {
       alert('Lütfen geçerli bir sayısal değer giriniz.');
       return;
     }
 
-    var sonuc, aciklama;
+    var sonuc, metin;
 
     switch (tip) {
-      // Sıcaklık
-      case 'c_to_f':
-        sonuc    = (deger * 9/5) + 32;
-        aciklama = deger + ' °C = ' + sonuc.toFixed(2) + ' °F';
-        break;
-      case 'f_to_c':
-        sonuc    = (deger - 32) * 5/9;
-        aciklama = deger + ' °F = ' + sonuc.toFixed(2) + ' °C';
-        break;
-      case 'c_to_k':
-        sonuc    = deger + 273.15;
-        aciklama = deger + ' °C = ' + sonuc.toFixed(2) + ' K';
-        break;
-      case 'k_to_c':
-        sonuc    = deger - 273.15;
-        aciklama = deger + ' K = ' + sonuc.toFixed(2) + ' °C';
-        break;
-      // Uzunluk
-      case 'm_to_km':
-        sonuc    = deger / 1000;
-        aciklama = deger + ' m = ' + sonuc.toFixed(4) + ' km';
-        break;
-      case 'km_to_m':
-        sonuc    = deger * 1000;
-        aciklama = deger + ' km = ' + sonuc.toFixed(2) + ' m';
-        break;
-      case 'm_to_mil':
-        sonuc    = deger / 1609.344;
-        aciklama = deger + ' m = ' + sonuc.toFixed(6) + ' mil';
-        break;
-      case 'mil_to_m':
-        sonuc    = deger * 1609.344;
-        aciklama = deger + ' mil = ' + sonuc.toFixed(2) + ' m';
-        break;
+      case 'c_f':  sonuc = (deger * 9/5) + 32;     metin = deger + ' °C  =  ' + sonuc.toFixed(2) + ' °F';    break;
+      case 'f_c':  sonuc = (deger - 32) * 5/9;      metin = deger + ' °F  =  ' + sonuc.toFixed(2) + ' °C';    break;
+      case 'c_k':  sonuc = deger + 273.15;           metin = deger + ' °C  =  ' + sonuc.toFixed(2) + ' K';     break;
+      case 'k_c':  sonuc = deger - 273.15;           metin = deger + ' K  =  '  + sonuc.toFixed(2) + ' °C';    break;
+      case 'm_km': sonuc = deger / 1000;             metin = deger + ' m  =  '  + sonuc.toFixed(5) + ' km';    break;
+      case 'km_m': sonuc = deger * 1000;             metin = deger + ' km  =  ' + sonuc.toFixed(2) + ' m';     break;
+      case 'm_mil':sonuc = deger / 1609.344;         metin = deger + ' m  =  '  + sonuc.toFixed(6) + ' mil';   break;
+      case 'mil_m':sonuc = deger * 1609.344;         metin = deger + ' mil  =  '+ sonuc.toFixed(2) + ' m';     break;
     }
 
-    sonucDiv.style.display = 'block';
-    sonucDiv.innerHTML = '<strong>Sonuç:</strong> ' + aciklama;
-  }
+    alan.style.display = 'block';
+    alan.textContent   = '✅ Sonuç: ' + metin;
+  });
 </script>
+
 </body>
 </html>
