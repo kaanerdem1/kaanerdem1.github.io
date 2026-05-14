@@ -1,28 +1,168 @@
-<main class="icerik-alani">
-    <h2>Öğrenci Not Hesaplama</h2>
-        <link rel="stylesheet" href="uygulama1.css">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 1 - Not Hesaplama</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    .form-kutu {
+      max-width: 480px;
+      margin: 40px auto;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 30px;
+    }
+    .form-kutu h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+    .form-kutu label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 4px;
+      font-weight: bold;
+      color: #333;
+    }
+    .form-kutu input[type="text"] {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+    .form-kutu button {
+      margin-top: 22px;
+      width: 100%;
+      padding: 10px;
+      background-color: #2c3e50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .form-kutu button:hover {
+      background-color: #3d5166;
+    }
+    #sonuc {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 16px;
+      display: none;
+    }
+    #sonuc.gecti {
+      background-color: #d4edda;
+      border: 1px solid #28a745;
+      color: #155724;
+    }
+    #sonuc.kaldi {
+      background-color: #f8d7da;
+      border: 1px solid #dc3545;
+      color: #721c24;
+    }
+    .geri-link {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      color: #2c3e50;
+      text-decoration: none;
+    }
+    .geri-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1 class="baslik">CSS Temel Ödevi</h1>
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="about.html">Hakkında</a></li>
+        <li><a href="interests.html">Hizmetler</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    
-    <div class="form-group">
-        <input type="text" id="adSoyad" placeholder="Filiz Akın">
-    </div>
-    
-    <div class="form-group">
-        <input type="number" id="vize" placeholder="60">
-    </div>
-    
-    <div class="form-group">
-        <input type="number" id="final" placeholder="60">
-    </div>
+  <main>
+    <div class="form-kutu">
+      <h2>Öğrenci Not Hesaplama</h2>
 
-    <button id="hesaplaBtn">Hesapla</button>
+      <label for="adSoyad">Ad Soyad:</label>
+      <input type="text" id="adSoyad" placeholder="Adınızı ve soyadınızı giriniz">
 
-    <div id="sonuc" class="sonuc" style="display: none;">
-        <div id="sonucAd" class="ogrenci-ad"></div>
-        <div id="sonucOrtalama"></div>
-        <div id="sonucHarf"></div>
-        <div id="sonucDurum"></div>
+      <label for="vize">Vize Notu (0-100):</label>
+      <input type="text" id="vize" placeholder="Vize notunuzu giriniz">
+
+      <label for="final">Final Notu (0-100):</label>
+      <input type="text" id="final" placeholder="Final notunuzu giriniz">
+
+      <button onclick="hesapla()">Hesapla</button>
+
+      <div id="sonuc"></div>
+      <a href="index.html" class="geri-link">← Ana Sayfaya Dön</a>
     </div>
-        <script src="uygulama1.js"></script>
+  </main>
 
-</main>
+  <footer>
+    <p>© 2026 CSS Temel Örnek. Bu sayfa basit bir HTML+CSS alıştırmasıdır.</p>
+  </footer>
+</div>
+
+<script>
+  function hesapla() {
+    var adSoyad = document.getElementById('adSoyad').value.trim();
+    var vize    = parseFloat(document.getElementById('vize').value);
+    var final   = parseFloat(document.getElementById('final').value);
+    var sonucDiv = document.getElementById('sonuc');
+
+    // Doğrulama
+    if (adSoyad === '') {
+      alert('Lütfen Ad Soyad giriniz.');
+      return;
+    }
+    if (isNaN(vize) || vize < 0 || vize > 100) {
+      alert('Lütfen geçerli bir vize notu giriniz (0-100).');
+      return;
+    }
+    if (isNaN(final) || final < 0 || final > 100) {
+      alert('Lütfen geçerli bir final notu giriniz (0-100).');
+      return;
+    }
+
+    // Ortalama hesapla: Vize %40, Final %60
+    var ortalama = (vize * 0.4) + (final * 0.6);
+    ortalama = Math.round(ortalama * 100) / 100;
+
+    // Harf notu
+    var harfNotu;
+    if      (ortalama >= 90) harfNotu = 'AA';
+    else if (ortalama >= 85) harfNotu = 'BA';
+    else if (ortalama >= 80) harfNotu = 'BB';
+    else if (ortalama >= 75) harfNotu = 'CB';
+    else if (ortalama >= 70) harfNotu = 'CC';
+    else if (ortalama >= 65) harfNotu = 'DC';
+    else if (ortalama >= 60) harfNotu = 'DD';
+    else if (ortalama >= 50) harfNotu = 'FD';
+    else                     harfNotu = 'FF';
+
+    // Geçti / Kaldı (ortalama >= 50 ise geçti)
+    var durum = ortalama >= 50 ? 'GEÇTİ ✅' : 'KALDI ❌';
+    var css   = ortalama >= 50 ? 'gecti'     : 'kaldi';
+
+    sonucDiv.className = css;
+    sonucDiv.style.display = 'block';
+    sonucDiv.innerHTML =
+      '<strong>' + adSoyad + '</strong> için sonuçlar:<br>' +
+      'Vize: ' + vize + ' | Final: ' + final + '<br>' +
+      'Ortalama: <strong>' + ortalama + '</strong><br>' +
+      'Harf Notu: <strong>' + harfNotu + '</strong><br>' +
+      'Durum: <strong>' + durum + '</strong>';
+  }
+</script>
+</body>
+</html>
